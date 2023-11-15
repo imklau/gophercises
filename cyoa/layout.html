@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choose Your Own Adventure</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Syne:wght@800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <style>
+    body {
+      font-family: "Merriweather", serif;
+      line-height: 1.5;
+      background: #f0f1f5;
+    }
+    .main {
+      max-width: 760px;
+      margin: 100px auto;
+      padding: 80px;
+      background: #fff;
+      box-shadow: 0px 0px 20px #d3d6e0;
+      border-radius: 4px;
+    }
+
+    .content {
+      color: #2a2f42;
+    }
+
+    .heading {
+      margin-bottom: 40px;
+    }
+
+    .list {
+      margin-top: 50px;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .link {
+      color: #073da3;
+    }
+  </style>
+  <body>
+    <main class="main">
+      <h1 class="heading">{{.Title}}</h1>
+
+      <div class="content">
+        {{range .Paragraphs}}
+        <p>{{.}}</p>
+        {{end}}
+      </div>
+
+      <ul class="list">
+        {{range .Options}}
+        <li><a class="link" href="{{.Chapter}}">{{.Text}}</a></li>
+        {{end}}
+      </ul>
+    </main>
+  </body>
+</html>
